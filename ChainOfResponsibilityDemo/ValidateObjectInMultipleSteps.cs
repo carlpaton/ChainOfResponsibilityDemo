@@ -22,6 +22,10 @@
             {
                 Console.WriteLine(message);
             }
+
+            // This will throw its toys
+            request = new Request() { Data = new NotAPerson() };
+            maxNameLengthHandler.Process(request);
         }
     }
 
@@ -37,6 +41,10 @@
     {
         public string Name { get; set; }
         public int Age { get; set; }
+    }
+
+    public class NotAPerson
+    {
     }
 
     public interface IHandler
